@@ -1,0 +1,45 @@
+.container {
+  padding: 0 2rem;
+}
+  
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.list {
+  width: 400px;
+  max-width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.list_item {
+  margin: 0.5rem 1rem !important;
+  input {
+    font-size: 1.3em;
+  }
+}
+.list_button {
+  height: 3rem;
+  width: 160px;
+  margin: 0.5rem 1rem !important;
+  align-self: flex-end;
+}

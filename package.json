@@ -9,9 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@fontsource/roboto": "^4.5.7",
+    "@mui/icons-material": "^5.8.0",
+    "@mui/material": "^5.8.0",
+    "@types/flat": "^5.0.2",
+    "@types/lodash": "^4.14.182",
+    "@types/seedrandom": "^3.0.2",
+    "animate-svg": "^1.1.0",
+    "flat": "^5.0.2",
+    "lodash": "^4.17.21",
+    "mui-modal-provider": "^2.0.0",
+    "nanoid": "^3.3.4",
     "next": "12.1.6",
+    "random": "^3.0.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "redis": "^4.1.0",
+    "sass": "^1.51.0",
+    "seedrandom": "^3.0.5",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "@types/node": "17.0.34",
