@@ -50,7 +50,7 @@ const Home: NextPage = () => {
             }
           }}>
             <h2>Join Room &rarr;</h2>
-            <p>Join a friend's drinking session!</p>
+            <p>Join a friend&apos;s drinking session!</p>
           </Link>
         </div>
       </main>

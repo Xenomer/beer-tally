@@ -59,25 +59,15 @@ const RoomPage: NextPage = ({
     if (data) {
       setRoom(data);
     }
-  })
+  }, [ data ]);
 
   useEffect(() => {
-    (async () => {
-      if (!room) {
-        setError('notfound')
-      }
-    })()
-  }, [ roomId ])
-  useEffect(() => {
-    if(room && !user && localStorage.getItem(roomId)) {
-      const info = JSON.parse(localStorage.getItem(roomId) as any)
-      const user = room.users[info[0]];
-      setUser({
-        ...user,
-        editToken: info[1],
-      });
+    // (async () => {
+    if (!room) {
+      setError('notfound')
     }
-  }, [ ])
+    // })()
+  }, [ room ])
 
   const handleIncrease = useCallback(async (id: string) => {
     console.log(id)
@@ -89,7 +79,7 @@ const RoomPage: NextPage = ({
         mutate(await result.json())
       }
     }
-  }, [ room, user ]);
+  }, [ room, mutate ]);
 
   const handleDecrease = useCallback(async (id: string) => {
     if (room && id) {
@@ -100,7 +90,7 @@ const RoomPage: NextPage = ({
         mutate(await result.json())
       }
     }
-  }, [ room, user ]);
+  }, [ room, mutate ]);
 
   const handleClickNewUser = useCallback(async () => {
     setRoomMenuAnchorEl(null);
@@ -119,7 +109,7 @@ const RoomPage: NextPage = ({
         }
       });
     }
-  }, [ room ]);
+  }, [ room, mutate, showModal ]);
 
   const handleLeaveRoom = useCallback(async () => {
     setRoomMenuAnchorEl(null);
@@ -135,7 +125,7 @@ const RoomPage: NextPage = ({
         yesButtonText: 'Leave',
       });
     }
-  }, [ room ]);
+  }, [ room, router, showModal ]);
 
   const handleShareRoom = useCallback(async () => {
     setRoomMenuAnchorEl(null);
@@ -144,7 +134,7 @@ const RoomPage: NextPage = ({
         room,
       });
     }
-  }, [ room, selectedUser ]);
+  }, [ room, showModal ]);
 
   const handleRemoveUser = useCallback(async () => {
     setUserMenuAnchorEl(null);
@@ -166,7 +156,7 @@ const RoomPage: NextPage = ({
         yesButtonText: 'Kick',
       });
     }
-  }, [ room, selectedUser ]);
+  }, [ room, selectedUser, mutate, showModal ]);
 
   return (
     <div className={styles.container}>

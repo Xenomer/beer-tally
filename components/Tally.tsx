@@ -66,7 +66,7 @@ function TallyLine({
   random: Random
 }) {
   const ref = useRef<SVGGeometryElement>(null)
-  const r = (a: number, b: number) => rCalc(random, a, b, randomness);
+  const r = useCallback((a: number, b: number) => rCalc(random, a, b, randomness), [ random, randomness ]);
 
   (typeof window !== 'undefined' ? useLayoutEffect : useEffect)(() => {
     if (ref.current) {
@@ -88,7 +88,7 @@ function TallyLine({
     r(-0, 0),
     r(0.6, 0),
     r(2.1, 0),
-  ], [ ]);
+  ], [ r ]);
   return <svg width='0.7em' height='2em' style={{ overflow: 'visible' }}>
     <line
       ref={ref as any}
@@ -110,7 +110,7 @@ function TallyLineOver({
   random: Random
 }) {
   const ref = useRef<SVGGeometryElement>(null)
-  const r = (a: number, b: number) => rCalc(random, a, b, randomness);
+  const r = useCallback((a: number, b: number) => rCalc(random, a, b, randomness), [ random, randomness ]);
 
   (typeof window !== 'undefined' ? useLayoutEffect : useEffect)(() => {
     if (ref.current) {
@@ -132,7 +132,7 @@ function TallyLineOver({
     r(0.3, 0),
     r(-3, 0),
     r(1.7, 0),
-  ], [ ]);
+  ], [ r ]);
   return <svg width='0.2em' height='2em' style={{ overflow: 'visible' }}>
     <line
       ref={ref as any}
